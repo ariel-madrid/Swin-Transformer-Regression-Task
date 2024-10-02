@@ -44,7 +44,16 @@ class CustomFitsDataset(Dataset):
         combined_tensor = combined_tensor.squeeze(2)
         
         # Extraer mdisk, rdisk y posang desde el nombre del archivo - incluir los demas parametros mas adelante
-        filename_parts = self.fits_files[idx].replace('.fits', '').split('_')
+        filename = self.fits_files[idx]
+
+        # Reemplaza -B4.fits o -B8.fits por una cadena vacía si están presentes
+        if '-B4.fits' in filename:
+            filename = filename.replace('-B4.fits', '')
+        elif '-B8.fits' in filename:
+            filename = filename.replace('-B8.fits', '')
+        
+        # Luego divide el nombre en partes
+        filename_parts = filename.split('_')
         parameters = torch.tensor([float(part) for part in filename_parts], dtype=torch.float32)
         
         # Aplica transformaciones si es necesario
