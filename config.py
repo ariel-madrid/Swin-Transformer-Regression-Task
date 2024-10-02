@@ -23,7 +23,7 @@ _C.BASE = ['']
 # -----------------------------------------------------------------------------
 _C.DATA = CN()
 # Batch size for a single GPU, could be overwritten by command line argument
-_C.DATA.BATCH_SIZE = 2
+_C.DATA.BATCH_SIZE = 32
 # Path to dataset, could be overwritten by command line argument
 _C.DATA.DATA_PATH = ''
 _C.DATA.TRAIN_DIR = ''

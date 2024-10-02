@@ -16,7 +16,7 @@ AUG:
 BASE:
 - ''
 DATA:
-  BATCH_SIZE: 2
+  BATCH_SIZE: 32
   CACHE_MODE: part
   DATASET: imagenet
   DATA_PATH: ''
@@ -27,8 +27,8 @@ DATA:
   NUM_WORKERS: 6
   PATH_NORMALIZATION: /mnt/sdb1/ariel/Desktop/Scripts-Pre/normalization_values.csv
   PIN_MEMORY: true
-  TRAIN_DIR: /mnt/sdb1/ariel/Desktop/Disco/part1
-  VAL_DIR: /mnt/sdb1/ariel/Desktop/Disco/part1
+  TRAIN_DIR: /mnt/sdb1/ariel/Desktop/FITS
+  VAL_DIR: /mnt/sdb1/ariel/Desktop/FITS
   ZIP_MODE: false
 ENABLE_AMP: false
 EVAL_MODE: false
@@ -77,7 +77,7 @@ THROUGHPUT_MODE: false
 TRAIN:
   ACCUMULATION_STEPS: 1
   AUTO_RESUME: false
-  BASE_LR: 1.953125e-06
+  BASE_LR: 3.125e-05
   CLIP_GRAD: 5.0
   EPOCHS: 300
   LAYER_DECAY: 1.0
@@ -88,7 +88,7 @@ TRAIN:
     MULTISTEPS: []
     NAME: cosine
     WARMUP_PREFIX: true
-  MIN_LR: 1.953125e-08
+  MIN_LR: 3.125e-07
   MOE:
     SAVE_MASTER: false
   OPTIMIZER:
@@ -101,5 +101,5 @@ TRAIN:
   START_EPOCH: 0
   USE_CHECKPOINT: false
   WARMUP_EPOCHS: 10
-  WARMUP_LR: 1.953125e-09
+  WARMUP_LR: 3.125e-08
   WEIGHT_DECAY: 0.05
