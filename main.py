@@ -129,11 +129,12 @@ def main(config):
 
     torch.cuda.empty_cache()
 
-    df = pd.read_csv(config.DATA.PATH_NORMALIZATION)
+    #df = pd.read_csv(config.DATA.PATH_NORMALIZATION)
 
-    mean = [df["mean_real"].values[0], df["mean_imag"].values[0]] 
-    std = [df["sd_real"].values[0], df["sd_imag"].values[0]]
-
+    #mean = [df["mean_real"].values[0], df["mean_imag"].values[0]] 
+    #std = [df["sd_real"].values[0], df["sd_imag"].values[0]]
+    mean = [0.05, 0.05]
+    std = [0.9, 0.8]
     transform = transforms.Compose([
         transforms.Resize((config.DATA.IMG_SIZE ,config.DATA.IMG_SIZE )),  # Redimensionar la imagen
         transforms.Normalize(mean=mean, std=std)  # Normalizar usando la media y desviación estándar definidas
@@ -415,11 +416,11 @@ if __name__ == '__main__':
     #logger.info(json.dumps(vars(args)))
 
 
-    #main(config)
+    main(config)
     # Ejecutar la optimización de Optuna
-    study = optuna.create_study(direction='maximize')
-    study.optimize(objective, n_trials=50)
+    #study = optuna.create_study(direction='maximize')
+    #study.optimize(objective, n_trials=50)
 
     # Obtener los mejores hiperparámetros
-    best_params = study.best_trial.params
-    print(f"Mejores hiperparámetros: {best_params}")
+    #best_params = study.best_trial.params
+    #print(f"Mejores hiperparámetros: {best_params}")
